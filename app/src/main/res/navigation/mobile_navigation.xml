@@ -22,4 +22,10 @@
         android:name="br.ifsc.edu.prog3.manutencao.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
         tools:layout="@layout/fragment_notifications" />
+
+    <fragment
+        android:id="@+id/navigation_cad_ordem"
+        android:name="br.ifsc.edu.prog3.manutencao.cadOrdem"
+        android:label="@string/title_cad_ordem"
+        tools:layout="@layout/fragment_cad_ordem" />
 </navigation>
