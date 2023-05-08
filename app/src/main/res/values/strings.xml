@@ -6,4 +6,13 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="title_cad_ordem">Cad Ordem</string>
+
+    <string-array name ="setor">
+    <item>Selecione</item>
+        <item>Abate</item>
+        <item>Pós Câmara e Mezanino</item>
+        <item>Espostejamento</item>
+        <item>Embalagem</item>
+    </string-array>
+
 </resources>
