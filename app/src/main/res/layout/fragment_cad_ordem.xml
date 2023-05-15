@@ -3,7 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".cadOrdem">
+    tools:context=".ui.ordem.cadOrdem">
 
     <ScrollView
         android:layout_width="match_parent"
@@ -53,11 +53,30 @@
                 android:ems="10"
                 android:inputType="textPersonName" />
 
+            <TextView
+                android:id="@+id/textView4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Setor" />
+
             <Spinner
                 android:id="@+id/setor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries ="@array/setor"
+                />
+
+            <TextView
+                android:id="@+id/textView5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Tipo de manutenção" />
+
+            <Spinner
+                android:id="@+id/tipo_manutencao"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:entries ="@array/tipo_manutencao"
                 />
 
             <Space

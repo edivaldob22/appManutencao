@@ -25,7 +25,7 @@
 
     <fragment
         android:id="@+id/navigation_cad_ordem"
-        android:name="br.ifsc.edu.prog3.manutencao.cadOrdem"
+        android:name="br.ifsc.edu.prog3.manutencao.ui.ordem.cadOrdem"
         android:label="@string/title_cad_ordem"
         tools:layout="@layout/fragment_cad_ordem" />
 </navigation>

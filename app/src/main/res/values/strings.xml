@@ -15,4 +15,13 @@
         <item>Embalagem</item>
     </string-array>
 
+    <string-array name ="tipo_manutencao">
+        <item>Selecione</item>
+        <item>Corretiva</item>
+        <item>Preventiva</item>
+        <item>Outros</item>
+        <item>Automação</item>
+        <item>Falha Operacional</item>
+    </string-array>
+
 </resources>
