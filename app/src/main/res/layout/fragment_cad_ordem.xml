@@ -21,7 +21,7 @@
                 android:text="Ordem de serviço:" />
 
             <EditText
-                android:id="@+id/editTextNumber"
+                android:id="@+id/etnumero"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -31,10 +31,10 @@
                 android:id="@+id/textView2"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Matrícula" />
+                android:text="Matricula" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName"
+                android:id="@+id/etmatricula"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -47,7 +47,7 @@
                 android:text="Máquina" />
 
             <EditText
-                android:id="@+id/editTextTextPersonName2"
+                android:id="@+id/etcodigo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:ems="10"
@@ -60,7 +60,7 @@
                 android:text="Setor" />
 
             <Spinner
-                android:id="@+id/setor"
+                android:id="@+id/spsetor"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries ="@array/setor"
@@ -73,22 +73,73 @@
                 android:text="Tipo de manutenção" />
 
             <Spinner
-                android:id="@+id/tipo_manutencao"
+                android:id="@+id/sptipo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:entries ="@array/tipo_manutencao"
                 />
+
+            <TextView
+                android:id="@+id/textView6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Data" />
+
+            <CalendarView
+                android:id="@+id/cvdata"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora Inicial" />
+
+            <EditText
+                android:id="@+id/ethorai"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="time" />
+
+            <TextView
+                android:id="@+id/textView8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Hora Final" />
+
+            <EditText
+                android:id="@+id/ethoraf"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="time" />
+
+            <TextView
+                android:id="@+id/textView9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Observação" />
+
+            <EditText
+                android:id="@+id/etobs"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:ems="10"
+                android:inputType="textPersonName" />
+
+            <Button
+                android:id="@+id/btinserir"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Inserir" />
 
             <Space
                 android:layout_width ="match_parent"
                 android:layout_height ="?attr/actionBarSize"
                 />
 
-            <Button
-                android:id="@+id/button"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Inserir" />
         </LinearLayout>
     </ScrollView>
 </FrameLayout>
