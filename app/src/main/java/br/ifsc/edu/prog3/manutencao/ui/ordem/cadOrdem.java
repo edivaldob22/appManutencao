@@ -14,13 +14,17 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import br.ifsc.edu.prog3.manutencao.R;
+import br.ifsc.edu.prog3.manutencao.model.Ordem;
 
 /**
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class cadOrdem extends Fragment {
+public class cadOrdem extends Fragment implements View.OnClickListener{
     //atributos
     private EditText etNumero;
     private EditText etMatricula;
@@ -68,4 +72,38 @@ public class cadOrdem extends Fragment {
 
         return root;
     }
-}
+        @Override
+        public void onClick(View view) {
+            switch (view.getId()) {
+            //verificando se é o botão salvar
+                case R.id.btinserir:
+                //instanciando a classe de negócio
+                    Ordem o = new Ordem();
+                    //populando objeto com dados da tela
+                    o.setNumero(Integer.valueOf(this.etNumero.getText().toString()));
+                    o.setMatricula(this.etMatricula.getText().toString());
+                    o.setMaquina(this.etCodigo.getText().toString());
+                    o.setHoraI(this.etHoraI.getText().toString());
+                    o.setHoraF(this.etHoraF.getText().toString());
+                    o.setObs(this.etObs.getText().toString());
+                    //pegando dados do Spinner
+                    o.setSetor((byte) this.spSetor.getSelectedItemPosition());
+                    o.setTipo((byte) this.spTipo.getSelectedItemPosition());
+                    //Pegando a Data do CalendarView
+                    SimpleDateFormat sdf = new
+                            SimpleDateFormat("dd/MM/yyyy");
+                    String dataSelecionada = sdf.format(new Date(cvData.getDate()));
+                    o.setData(dataSelecionada);
+                 /*
+                //mensagem de sucesso
+                    Context context =  view.getContext();
+                    CharSequence text = "salvo com sucesso!";
+                    18int duration = Toast.LENGTH_SHORT;
+                    Toast toast = Toast.makeText (context, text, duration);
+                    toast.show();
+                    break;*/
+
+                    this.btInserir.setOnClickListener(this);
+            }
+        }
+    }
