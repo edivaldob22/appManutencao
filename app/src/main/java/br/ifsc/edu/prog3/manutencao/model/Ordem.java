@@ -23,16 +23,16 @@ public class Ordem {
     public Ordem(JSONObject jo) {
         try {
             this.numero = jo.getInt("numero");
-            this.tipo = jo.getInt("cdtipo");
-            this.setor = jo.getInt("cdsetor");
-            this.data = jo.getString("data");
+            this.tipo = jo.getInt("tipo");
+            this.setor = jo.getInt("codsetor");
+            this.data = jo.getString("dataos");
             this.horaI = jo.getString("horai");
             this.horaF = jo.getString("horaf");
             this.obs = jo.getString("obs");
             this.matricula = jo.getString("matricula");
-            this.nome = jo.getString("nome");
-            this.codigo = jo.getString("cdmaq");
-            this.nomeMaq = jo.getString("nomemaq");
+            this.nome = jo.getString("mtnome");
+            this.codigo = jo.getString("codmaquina");
+            this.nomeMaq = jo.getString("mqnome");
         }catch (JSONException e) {
             e.printStackTrace();
         }
@@ -58,16 +58,16 @@ public class Ordem {
         JSONObject json = new JSONObject();
         try {
             json.put("numero", this.numero);
-            json.put("cdtipo", this.tipo);
-            json.put("cdsetor", this.setor);
-            json.put("data", this.data);
+            json.put("tipo", this.tipo);
+            json.put("codsetor", this.setor);
+            json.put("dataos", this.data);
             json.put("horai", this.horaI);
             json.put("horaf", this.horaF);
             json.put("obs", this.obs);
             json.put("matricula", this.matricula);
-            json.put("nome", this.nome);
-            json.put("cdmaq", this.codigo);
-            json.put("nomemaq", this.nomeMaq);
+            json.put("mtnome", this.nome);
+            json.put("codmaquina", this.codigo);
+            json.put("mqnome", this.nomeMaq);
         } catch (JSONException e) {
             e.printStackTrace();
         }

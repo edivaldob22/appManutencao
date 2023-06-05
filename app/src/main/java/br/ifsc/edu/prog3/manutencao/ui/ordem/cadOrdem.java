@@ -14,6 +14,14 @@ import android.widget.CalendarView;
 import android.widget.EditText;
 import android.widget.Spinner;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+import com.google.android.material.snackbar.Snackbar;
+
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
@@ -24,7 +32,7 @@ import br.ifsc.edu.prog3.manutencao.model.Ordem;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class cadOrdem extends Fragment implements View.OnClickListener{
+public class cadOrdem extends Fragment implements View.OnClickListener, Response.ErrorListener, Response.Listener{
     //atributos
     private EditText etNumero;
     private EditText etMatricula;
@@ -37,6 +45,9 @@ public class cadOrdem extends Fragment implements View.OnClickListener{
     private CalendarView cvData;
     private Button btInserir;
     private View root;
+    //volley
+    private RequestQueue requestQueue;
+    private JsonObjectRequest jsonObjectReq;
 
     public cadOrdem() {
         // Required empty public constructor
@@ -69,15 +80,20 @@ public class cadOrdem extends Fragment implements View.OnClickListener{
         this.spTipo = (Spinner) root.findViewById(R.id.sptipo);
         this.cvData = (CalendarView) root.findViewById(R.id.cvdata);
         this.btInserir = (Button) root.findViewById(R.id.btinserir);
+        this.btInserir.setOnClickListener(this);
+        //instanciando a fila de requests - caso o objeto seja o root
+        this.requestQueue = Volley.newRequestQueue(root.getContext());
+        //inicializando a fila de requests do SO
+        this.requestQueue.start();
 
         return root;
     }
         @Override
         public void onClick(View view) {
             switch (view.getId()) {
-            //verificando se é o botão salvar
+                //verificando se é o botão salvar
                 case R.id.btinserir:
-                //instanciando a classe de negócio
+                    //instanciando a classe de negócio
                     Ordem o = new Ordem();
                     //populando objeto com dados da tela
                     o.setNumero(Integer.valueOf(this.etNumero.getText().toString()));
@@ -91,19 +107,51 @@ public class cadOrdem extends Fragment implements View.OnClickListener{
                     o.setTipo((byte) this.spTipo.getSelectedItemPosition());
                     //Pegando a Data do CalendarView
                     SimpleDateFormat sdf = new
-                            SimpleDateFormat("dd/MM/yyyy");
+                            SimpleDateFormat("yyyy-MM-dd");
                     String dataSelecionada = sdf.format(new Date(cvData.getDate()));
                     o.setData(dataSelecionada);
-                 /*
-                //mensagem de sucesso
-                    Context context =  view.getContext();
-                    CharSequence text = "salvo com sucesso!";
-                    18int duration = Toast.LENGTH_SHORT;
-                    Toast toast = Toast.makeText (context, text, duration);
-                    toast.show();
-                    break;*/
 
-                    this.btInserir.setOnClickListener(this);
+                    jsonObjectReq = new JsonObjectRequest(
+                            Request.Method.POST, "http://10.0.2.2/cadordem.php",
+                            o.toJsonObject(), this, this);
+                    requestQueue.add(jsonObjectReq);
+                    break;
             }
         }
+                @Override
+                public void onResponse(Object response) {
+                    String resposta = response.toString();
+                    try {
+                        if(resposta.equals("500")) {
+                            Snackbar mensagem = Snackbar.make(root,
+                                    "Erro! = " + resposta,
+                                    Snackbar.LENGTH_LONG);
+                            mensagem.show();
+                        } else {
+                            //sucesso //limpar campos da tela
+                            this.etNumero.setText("0");
+                            this.etMatricula.setText("");
+                            this.etCodigo.setText("");
+                            this.etHoraI.setText("");
+                            this.etHoraF.setText("");
+                            this.etObs.setText("");
+                            this.spSetor.setSelection(0);
+                            this.spTipo.setSelection(0);
+                            //mensagem de sucesso
+                            Snackbar mensagem = Snackbar.make(root,
+                                    "Sucesso! = " + resposta,
+                                    Snackbar.LENGTH_LONG);
+                            mensagem.show();
+                        }
+                    } catch (Exception e) {  e.printStackTrace(); }
+                }
+
+                @Override
+                public void onErrorResponse(VolleyError error) {
+                    Snackbar mensagem = Snackbar.make(root,
+                            "Ops! Houve um problema ao realizar o cadastro: " +
+                                    error.toString(),Snackbar.LENGTH_LONG);
+                    mensagem.show();
+
+                }
     }
