@@ -12,12 +12,6 @@
         tools:layout="@layout/fragment_home" />
 
     <fragment
-        android:id="@+id/navigation_dashboard"
-        android:name="br.ifsc.edu.prog3.manutencao.ui.dashboard.DashboardFragment"
-        android:label="@string/title_dashboard"
-        tools:layout="@layout/fragment_dashboard" />
-
-    <fragment
         android:id="@+id/navigation_notifications"
         android:name="br.ifsc.edu.prog3.manutencao.ui.notifications.NotificationsFragment"
         android:label="@string/title_notifications"
@@ -25,7 +19,13 @@
 
     <fragment
         android:id="@+id/navigation_cad_ordem"
-        android:name="br.ifsc.edu.prog3.manutencao.ui.ordem.cadOrdem"
+        android:name="br.ifsc.edu.prog3.manutencao.ui.ordem.CadOrdemFragment"
         android:label="@string/title_cad_ordem"
         tools:layout="@layout/fragment_cad_ordem" />
+
+    <fragment
+        android:id="@+id/navigation_con_ordem"
+        android:name="br.ifsc.edu.prog3.manutencao.ui.ordem.ConOrdemFragment"
+        android:label="@string/title_con_ordem"
+        tools:layout="@layout/fragment_con_ordem_list" />
 </navigation>

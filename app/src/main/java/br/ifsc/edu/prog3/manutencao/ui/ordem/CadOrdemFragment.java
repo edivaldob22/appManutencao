@@ -2,7 +2,6 @@ package br.ifsc.edu.prog3.manutencao.ui.ordem;
 
 import android.os.Bundle;
 
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.Fragment;
 
@@ -32,7 +31,7 @@ import br.ifsc.edu.prog3.manutencao.model.Ordem;
  * A simple {@link Fragment} subclass.
  * create an instance of this fragment.
  */
-public class cadOrdem extends Fragment implements View.OnClickListener, Response.ErrorListener, Response.Listener{
+public class CadOrdemFragment extends Fragment implements View.OnClickListener, Response.ErrorListener, Response.Listener{
     //atributos
     private EditText etNumero;
     private EditText etMatricula;
@@ -49,7 +48,7 @@ public class cadOrdem extends Fragment implements View.OnClickListener, Response
     private RequestQueue requestQueue;
     private JsonObjectRequest jsonObjectReq;
 
-    public cadOrdem() {
+    public CadOrdemFragment() {
         // Required empty public constructor
     }
 

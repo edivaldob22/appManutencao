@@ -12,9 +12,9 @@
         android:title="@string/title_cad_ordem" />
 
     <item
-        android:id="@+id/navigation_dashboard"
-        android:icon="@drawable/ic_dashboard_black_24dp"
-        android:title="@string/title_dashboard" />
+        android:id="@+id/navigation_con_ordem"
+        android:icon="@android:drawable/ic_menu_search"
+        android:title="@string/title_con_ordem" />
 
     <item
         android:id="@+id/navigation_notifications"
