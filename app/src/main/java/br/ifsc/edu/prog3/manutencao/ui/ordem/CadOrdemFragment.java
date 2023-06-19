@@ -151,6 +151,5 @@ public class CadOrdemFragment extends Fragment implements View.OnClickListener, 
                             "Ops! Houve um problema ao realizar o cadastro: " +
                                     error.toString(),Snackbar.LENGTH_LONG);
                     mensagem.show();
-
                 }
     }
